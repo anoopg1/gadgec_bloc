@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gadgec_bloc/repository/services/product_services.dart';
+
+import 'package:gadgec_bloc/ui/home/screen_home.dart';
 
 class ScreenLogin extends StatelessWidget {
   const ScreenLogin({super.key});
@@ -13,8 +16,14 @@ class ScreenLogin extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: deviceHeight*0.050,),
-            Center(child: Image.asset("assets/images/login_image.png",width: deviceWidth*0.80,)),
+            SizedBox(
+              height: deviceHeight * 0.050,
+            ),
+            Center(
+                child: Image.asset(
+              "assets/images/login_image.png",
+              width: deviceWidth * 0.80,
+            )),
             SizedBox(
               height: deviceHeight * 0.050,
             ),
@@ -35,7 +44,12 @@ class ScreenLogin extends StatelessWidget {
             ElevatedButton(
                 style: const ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(Colors.black)),
-                onPressed: () {},
+                onPressed: () {
+                  ProductServices().fetchProducts();
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ScreenHome(),
+                  ));
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

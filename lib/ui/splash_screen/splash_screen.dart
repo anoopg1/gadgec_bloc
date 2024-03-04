@@ -8,8 +8,8 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      splash: 'images/splash.png',
-      nextScreen: ScreenLogin(),
+      splash: "assets/images/logo.png",
+      nextScreen: const ScreenLogin(),
       splashTransition: SplashTransition.rotationTransition,
     );
   }
